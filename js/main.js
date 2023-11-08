@@ -48,16 +48,16 @@ function buildSquare(number, bombs) {
     cell.innerHTML = number;
     
     cell.addEventListener("click", function(){
-
+        
         for(let i=1; i<=16; i++){
 
             if(number == bombs[i]){
                 cell.classList.toggle("bomb");
                 alert("GAME OVER!")
+                break;
             }else{
             cell.classList.toggle("selected");
             console.log(number);
-            break;
             }
         }
         
