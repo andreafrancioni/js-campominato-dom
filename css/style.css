@@ -70,3 +70,7 @@ footer{
 .selected{
     background:cyan;
 }
+
+.bomb{
+    background: red;
+}
