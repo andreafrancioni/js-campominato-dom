@@ -4,6 +4,8 @@ let grid = document.getElementById("grid");
 let playBtn = document.getElementById("playBtn");
 let squareDim;
 let bombs = [];
+let points=0;
+
 
 /*** PULSANTE PLAY AVVIO GIOCO ***/
 playBtn.addEventListener("click", function() {
@@ -49,11 +51,14 @@ function buildSquare(number, bombs) {
 
             if(number == bombs[i]){
                 cell.classList.toggle("bomb");
-                alert("GAME OVER!");
+                alert(`GAME OVER! Hai fatto ${points} punti.`);
                 break;
             }
         }
         cell.classList.toggle("selected");
+        points += 1;
+        console.log(points);
+
         
     });
     return cell;
