@@ -3,6 +3,7 @@ let numCells;
 let grid = document.getElementById("grid");
 let playBtn = document.getElementById("playBtn");
 let squareDim;
+let bombs = [];
 
 /*** PULSANTE PLAY AVVIO GIOCO ***/
 playBtn.addEventListener("click", function() {
@@ -27,8 +28,13 @@ playBtn.addEventListener("click", function() {
     for (let i = 1; i <= numCells; i++){
         let oneCell = buildSquare(i);
         grid.appendChild(oneCell);
-        oneCell.innerHTML = i;
+
+        if(i<16){
+            bombs.push(randomNumberGen(numCells));
+        }
     }
+
+    console.log(bombs);
 });
 
 
@@ -36,12 +42,25 @@ playBtn.addEventListener("click", function() {
 
 
 /*** FUNZIONE CREA QUADRATI***/
-function buildSquare(number) {
+function buildSquare(number, bombs) {
     const cell = document.createElement("div");
     cell.classList.add(squareDim);
+    cell.innerHTML = number;
 
+    
     cell.addEventListener("click", function(){
-        cell.classList.toggle("selected");
+        if(number == bombs){
+            console.log("BOOM HAI PERSO!");
+        }else{
+            cell.classList.toggle("selected");
+            console.log(number);
+        }
+        
     });
     return cell;
+}
+
+/*** FUNZIONE GENERA NUMERI CASUALI ***/
+function randomNumberGen(max){
+    return Math.floor(Math.random() * max);
 }
