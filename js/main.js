@@ -46,15 +46,14 @@ function buildSquare(number, bombs) {
     const cell = document.createElement("div");
     cell.classList.add(squareDim);
     cell.innerHTML = number;
-
     
-    cell.addEventListener("click", function(){
-        if(number == bombs){
-            console.log("BOOM HAI PERSO!");
-        }else{
+    cell.addEventListener("click", function(number, bombs){
+            if(number == bombs[i]){
+                console.log("GAME OVER!");
+            }else{
             cell.classList.toggle("selected");
             console.log(number);
-        }
+            }
         
     });
     return cell;
