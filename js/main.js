@@ -5,11 +5,13 @@ let playBtn = document.getElementById("playBtn");
 let squareDim;
 let bombs = [];
 let points=0;
-
+let gameState = false;
 
 /*** PULSANTE PLAY AVVIO GIOCO ***/
 playBtn.addEventListener("click", function() {
     
+    gameState=true;
+
     /** SVUOTA IL CAMPO DI GIOCO ***/
     grid.innerHTML = "";
 
@@ -47,18 +49,24 @@ function buildSquare(number, bombs) {
     
     cell.addEventListener("click", function(){
         
-        for(let i=1; i<=16; i++){
+        if(gameState==true){
 
-            if(number == bombs[i]){
-                cell.classList.toggle("bomb");
-                alert(`GAME OVER! Hai fatto ${points} punti.`);
-                break;
+            for(let i=1; i<=16; i++){
+    
+                if(number == bombs[i]){
+                    cell.classList.toggle("bomb");
+                    alert(`GAME OVER! Hai fatto ${points} punti.`);
+                    gameState=false;
+                    break;
+                }
             }
+            cell.classList.toggle("selected");
+            points += 1;
+            console.log(points);
+        }else{
+            points=0;
+            alert("LA PARTITA E' CONCLUSA, CLICCA PLAY PER RICOMINCIARE.")
         }
-        cell.classList.toggle("selected");
-        points += 1;
-        console.log(points);
-
         
     });
     return cell;
