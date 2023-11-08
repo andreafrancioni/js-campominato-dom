@@ -25,7 +25,7 @@ playBtn.addEventListener("click", function() {
 
 
     for (let i = 1; i <= numCells; i++){
-        let oneCell = buildSquare(i);
+        let oneCell = buildSquare(i, bombs);
         grid.appendChild(oneCell);
 
         if(i<16){
@@ -47,15 +47,13 @@ function buildSquare(number, bombs) {
         
         for(let i=1; i<=16; i++){
 
-            if(number == bombs){
+            if(number == bombs[i]){
                 cell.classList.toggle("bomb");
-                alert("GAME OVER!")
+                alert("GAME OVER!");
                 break;
-            }else{
-            cell.classList.toggle("selected");
-            console.log(number);
             }
         }
+        cell.classList.toggle("selected");
         
     });
     return cell;
