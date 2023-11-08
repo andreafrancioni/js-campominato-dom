@@ -24,7 +24,6 @@ playBtn.addEventListener("click", function() {
     }
 
 
-
     for (let i = 1; i <= numCells; i++){
         let oneCell = buildSquare(i);
         grid.appendChild(oneCell);
@@ -38,9 +37,6 @@ playBtn.addEventListener("click", function() {
 });
 
 
-
-
-
 /*** FUNZIONE CREA QUADRATI***/
 function buildSquare(number, bombs) {
     const cell = document.createElement("div");
@@ -51,7 +47,7 @@ function buildSquare(number, bombs) {
         
         for(let i=1; i<=16; i++){
 
-            if(number == bombs[i]){
+            if(number == bombs){
                 cell.classList.toggle("bomb");
                 alert("GAME OVER!")
                 break;

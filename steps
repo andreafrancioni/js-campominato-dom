@@ -1,0 +1,7 @@
+1. l'utente seleziona la modalità di gioco e clicca play.
+2. a seconda della modalità di gioco viene generato il campo con le celle (100 se easy, 81 se medio, 49 se difficile).
+3. insieme alle celle vengono generate in un array 16 bombe con numeri casuali, con un range che va a seconda della modalità scelta (da 1 a 100 se easy, da 1 a 81 se medio, da 1 a 49 se difficile.)
+4. quando l'utente clicca su una singola cella, il computer deve verificare se il numero della cella, è presente nell'array delle bombe,
+    se si, la partita finisce e viene scritto il punteggio raggiunto, se invece la cella non è presente nell'array allora viene "selezionata"
+    con background celeste e si continua il gioco.
+5. se l'utente riesce a cliccare su tutte le celle senza bombe la partita finisce con il massimo del punteggio e le bombe vengono scoperte.
