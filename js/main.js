@@ -11,7 +11,7 @@ let gameState = false;
 playBtn.addEventListener("click", function() {
     
     gameState=true;
-
+    points = 0;
     /** SVUOTA IL CAMPO DI GIOCO ***/
     grid.innerHTML = "";
 
@@ -64,7 +64,6 @@ function buildSquare(number, bombs) {
             points += 1;
             console.log(points);
         }else{
-            points=0;
             alert("LA PARTITA E' CONCLUSA, CLICCA PLAY PER RICOMINCIARE.")
         }
         
